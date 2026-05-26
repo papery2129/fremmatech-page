@@ -1,5 +1,6 @@
 import { Navbar } from "../../widgets/navbar";
 import { Hero } from "../../widgets/hero";
+import { ServiceCatalog } from "../../widgets/service-catalog";
 
 export const Home = () => {
   return (
@@ -8,6 +9,7 @@ export const Home = () => {
 
       <main>
         <Hero />
+        <ServiceCatalog />
       </main>
     </div>
   );
