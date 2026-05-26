@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
+
+@theme {
+  /* Colors - Aether Solid Design System */
+  --color-surface: #131315;
+  --color-surface-dim: #131315;
+  --color-surface-container-lowest: #0e0e0f;
+  --color-surface-container-low: #1b1b1d;
+  --color-primary: #bcc7dc;
+  --color-primary-container: #020b1a;
+  --color-secondary: #bdf4ff;
+  --color-secondary-container: #00e3fd; /* Neon Cyan */
+  --color-on-secondary-container: #00616d;
+  --color-on-surface: #e4e2e3;
+  --color-on-surface-variant: #c5c6cd;
+  --color-background: #131315;
+  
+  /* Typography */
+  --font-body: "Hanken Grotesk", sans-serif;
+  --font-headline: "Hanken Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Spacing */
+  --spacing-gutter: 24px;
+  --spacing-container-max: 1280px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 80px;
+  --spacing-base: 8px;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+@layer components {
+  /* Efectos Glassmorphism */
+  .glass-card {
+    background-color: rgba(19, 19, 21, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Efectos Aura/Glow */
+  .neon-glow-cyan { box-shadow: 0 0 20px rgba(0, 227, 253, 0.4); }
+  .neon-glow-red { box-shadow: 0 0 20px rgba(255, 75, 75, 0.4); }
+  .neon-glow-green { box-shadow: 0 0 20px rgba(75, 255, 120, 0.4); }
+  .neon-glow-yellow { box-shadow: 0 0 20px rgba(255, 220, 75, 0.4); }
+  .neon-glow-purple { box-shadow: 0 0 20px rgba(180, 75, 255, 0.4); }
+  .neon-glow-pink { box-shadow: 0 0 20px rgba(255, 75, 180, 0.4); }
+  .neon-glow-mint { box-shadow: 0 0 20px rgba(75, 255, 200, 0.4); }
+  
+  /* Animaciones Orbitales y Marquee */
+  .orbit-animation { animation: spin 30s linear infinite; }
+  .orbit-item { animation: spin-reverse 30s linear infinite; }
+  
+  .animate-marquee {
+    display: flex;
+    width: 200%;
+    animation: marquee 25s linear infinite;
+  }
+  .animate-marquee:hover { animation-play-state: paused; }
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
