@@ -71,3 +71,39 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+@layer components {
+  /* ... tus clases anteriores de neon-glow, glass-card y marquee ... */
+
+  /* Nuevas utilidades para el ecosistema */
+  .nebula-glow {
+    background: radial-gradient(circle at center, rgba(0, 227, 253, 0.15) 0%, rgba(2, 11, 26, 0) 70%);
+  }
+  
+  .core-pulse {
+    animation: core-pulse-anim 4s ease-in-out infinite;
+  }
+  
+  .orbit-ring {
+    @apply border border-cyan-400/10 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+  
+  .service-node {
+    @apply absolute top-1/2 left-1/2 -mt-7 -ml-7 will-change-transform;
+    animation: orbit-cw var(--duration) linear infinite;
+  }
+  .service-node:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Keyframes específicos */
+@keyframes core-pulse-anim {
+  0%, 100% { transform: scale(1); opacity: 0.8; filter: blur(5px); }
+  50% { transform: scale(1.1); opacity: 1; filter: blur(10px); }
+}
+
+@keyframes orbit-cw {
+  from { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
