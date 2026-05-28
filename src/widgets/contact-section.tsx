@@ -27,7 +27,7 @@ export const ContactSection = () => {
         <div className="relative group">
           
           {/* 1. Ambient Glow: Capa difuminada que "empuja" el formulario hacia adelante */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-blue-500/10 to-purple-500/20 rounded-[2rem] blur-xl opacity-70 group-focus-within:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-blue-500/10 to-purple-500/20 rounded-2rem blur-xl opacity-70 group-focus-within:opacity-100 transition-opacity duration-500"></div>
           
           {/* 2. El Formulario: Ahora con bg-surface-container-high para separarlo del fondo negro */}
           <form 

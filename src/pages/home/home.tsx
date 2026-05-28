@@ -4,6 +4,7 @@ import { ServiceCatalog } from "../../widgets/service-catalog";
 import { GalaxyEcosystem } from "../../widgets/galaxy-ecosystem";
 import { Partners } from "../../widgets/partners";
 import { ContactSection } from "../../widgets/contact-section";
+import { Footer } from "../../widgets/footer";
 
 export const Home = () => {
   return (
@@ -17,6 +18,8 @@ export const Home = () => {
         <Partners />
         <ContactSection />
       </main>
+
+      <Footer />
     </div>
   );
 };
