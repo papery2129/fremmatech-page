@@ -2,6 +2,8 @@ import { Navbar } from "../../widgets/navbar";
 import { Hero } from "../../widgets/hero";
 import { ServiceCatalog } from "../../widgets/service-catalog";
 import { GalaxyEcosystem } from "../../widgets/galaxy-ecosystem";
+import { Partners } from "../../widgets/partners";
+import { ContactSection } from "../../widgets/contact-section";
 
 export const Home = () => {
   return (
@@ -11,10 +13,9 @@ export const Home = () => {
       <main>
         <Hero />
         <ServiceCatalog />
-        
-        {/* Aquí entra nuestra nueva sección interactiva 3D */}
         <GalaxyEcosystem />
-        
+        <Partners />
+        <ContactSection />
       </main>
     </div>
   );
