@@ -14,7 +14,8 @@ export const Navbar = () => {
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
         
         <div className="font-headline text-2xl font-bold text-on-surface">
-          Fremmatech
+            <span className="text-on-surface">Fremma</span>
+            <span className="text-secondary-container">tech</span>
         </div>
 
         <nav className="hidden md:flex gap-8">
