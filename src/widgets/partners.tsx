@@ -1,41 +1,48 @@
 export const Partners = () => {
-  // Duplicamos la lista para crear la ilusión óptica de un scroll infinito sin cortes
+  // Lista actualizada exactamente con los nombres de tu nuevo HTML
   const partnersList = [
-    "CISCO", "ARUBA", "AWS", "MICROSOFT", "FORTINET",
-    "CISCO", "ARUBA", "AWS", "MICROSOFT", "FORTINET"
+    "Dell Technologies", 
+    "Cisco", 
+    "Aruba", 
+    "AWS", 
+    "VMware", 
+    "Palo Alto Networks", 
+    "HP Enterprise", 
+    "Microsoft", 
+    "Fortinet"
   ];
 
+  const infinitePartners = [...partnersList, ...partnersList];
+
   return (
-    <section className="py-20 bg-surface border-y border-white/5 overflow-hidden">
+    <section className="py-20 border-y overflow-hidden bg-surface border-white/5">
       <div className="max-w-container-max mx-auto text-center">
         
-        <h3 className="font-mono text-[12px] font-bold tracking-[0.1em] text-on-surface-variant mb-8 px-margin-mobile md:px-margin-desktop uppercase">
-          Tecnología respaldada por los líderes
-        </h3>
+        {/* Nuevo bloque de encabezado (Semánticamente corregido) */}
+        <div className="flex flex-col gap-2 mb-12 px-margin-mobile md:px-margin-desktop">
+          <span className="font-mono text-[12px] font-bold text-secondary-container tracking-widest uppercase">
+            PARTNERS TECNOLÓGICOS
+          </span>
+          <h2 className="font-headline text-[40px] font-bold text-on-surface">
+            Respaldados por los mejores
+          </h2>
+        </div>
         
         <div className="relative w-full overflow-hidden">
-          {/* El contenedor principal de la animación Marquee */}
-          <div className="animate-marquee flex items-center gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 w-max">
-            
-            {partnersList.map((partner, index) => (
-              <div 
+          {/* Contenedor del Marquee: Se aplicó el gap-32 de tu HTML y mantenemos la velocidad */}
+          <div 
+            className="animate-marquee flex items-center transition-all duration-500 gap-32 w-max"
+            style={{ animationDuration: '60s' }}
+          >
+            {infinitePartners.map((partner, index) => (
+              <span 
                 key={index} 
-                className="h-8 shrink-0 text-on-surface flex items-center"
+                // Clases exactas de tu HTML: tipografía grande, en negritas, uppercase y color secundario
+                className="font-headline text-2xl font-bold uppercase text-secondary shrink-0"
               >
-                <svg className="h-8 w-auto fill-current" viewBox="0 0 160 30">
-                  <text 
-                    fontFamily="Arial" 
-                    fontSize="24" 
-                    fontWeight="bold" 
-                    x="0" 
-                    y="22"
-                  >
-                    {partner}
-                  </text>
-                </svg>
-              </div>
+                {partner}
+              </span>
             ))}
-            
           </div>
         </div>
         
