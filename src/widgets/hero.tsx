@@ -3,15 +3,13 @@ import { Button } from "../shared/ui/button";
 export const Hero = () => {
   return (
     <section className="relative pt-40 pb-32 overflow-hidden">
-      {/* Background & Overlay */}
+      
+      {/* Background Effects (Actualizado sin imagen, puro CSS) */}
       <div className="absolute inset-0 z-0">
-        {/* En un entorno real, esta imagen debe venir de un CDN optimizado o la carpeta /public */}
-        <img 
-          alt="Abstract deep space technology background" 
-          className="w-full h-full object-cover opacity-30 mix-blend-screen" 
-          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
-        />
-        <div className="absolute inset-0 bg-linear-to-b from-background/80 to-background"></div>
+        {/* Resplandor superior cyan */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(0,227,253,0.15)_0%,_transparent_50%)]"></div>
+        {/* Gradiente de fondo con transición suave a surface */}
+        <div className="absolute inset-0 bg-linear-to-b from-background via-surface to-secondary-container/10"></div>
       </div>
 
       {/* Content */}
@@ -25,7 +23,6 @@ export const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          {/* Reutilizamos nuestros componentes primitivos de forma segura */}
           <Button variant="primary">
             COMENZAR AHORA
           </Button>

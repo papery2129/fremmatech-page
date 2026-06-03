@@ -53,57 +53,85 @@
   .neon-glow-pink { box-shadow: 0 0 20px rgba(255, 75, 180, 0.4); }
   .neon-glow-mint { box-shadow: 0 0 20px rgba(75, 255, 200, 0.4); }
   
-  /* Animaciones Orbitales y Marquee */
-  .orbit-animation { animation: spin 30s linear infinite; }
-  .orbit-item { animation: spin-reverse 30s linear infinite; }
-  
+  /* Marquee de Partners */
   .animate-marquee {
     display: flex;
     width: 200%;
     animation: marquee 25s linear infinite;
   }
   .animate-marquee:hover { animation-play-state: paused; }
+
+  /* Efectos Base de la Galaxia */
+  .nebula-glow {
+    background: radial-gradient(circle at center, rgba(0, 227, 253, 0.15) 0%, rgba(2, 11, 26, 0) 70%);
+  }
+  .core-pulse {
+    animation: core-pulse-anim 4s ease-in-out infinite;
+  }
+  
+  /* Nuevas Animaciones del Sistema Planetario */
+  .orbit-ring {
+    @apply border border-white/10 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10;
+  }
+  
+  .service-node {
+    @apply absolute top-1/2 left-1/2 -mt-7 -ml-7 will-change-transform z-50;
+    animation: orbit-planet var(--duration) linear infinite;
+  }
+  
+  .sub-node {
+    @apply absolute top-1/2 left-1/2 -mt-6 -ml-6 pointer-events-none will-change-transform;
+    animation: orbit-sub var(--sub-duration, 15s) linear infinite;
+  }
+  
+  .service-node:hover, .service-node.active-node {
+    animation-play-state: paused;
+    @apply z-60;
+  }
+
+  /* Custom Scrollbar para el contenido de las tarjetas */
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+  
+  /* Lógica CSS pura para el Acordeón "SABER MÁS" */
+  .service-card-expandable {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    opacity: 0;
+  }
+  
+  .service-card-expanded .service-card-expandable {
+    max-height: 800px;
+    opacity: 1;
+  }
+  
+  .service-card-expanded .expand-icon {
+    transform: rotate(180deg);
+  }
 }
 
-@keyframes spin { 100% { transform: rotate(360deg); } }
-@keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+/* -------------------------------------
+   KEYFRAMES GLOBALES
+---------------------------------------- */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@layer components {
-  /* ... tus clases anteriores de neon-glow, glass-card y marquee ... */
-
-  /* Nuevas utilidades para el ecosistema */
-  .nebula-glow {
-    background: radial-gradient(circle at center, rgba(0, 227, 253, 0.15) 0%, rgba(2, 11, 26, 0) 70%);
-  }
-  
-  .core-pulse {
-    animation: core-pulse-anim 4s ease-in-out infinite;
-  }
-  
-  .orbit-ring {
-    @apply border border-cyan-400/10 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-  }
-  
-  .service-node {
-    @apply absolute top-1/2 left-1/2 -mt-7 -ml-7 will-change-transform;
-    animation: orbit-cw var(--duration) linear infinite;
-  }
-  .service-node:hover {
-    animation-play-state: paused;
-  }
-}
-
-/* Keyframes específicos */
 @keyframes core-pulse-anim {
   0%, 100% { transform: scale(1); opacity: 0.8; filter: blur(5px); }
   50% { transform: scale(1.1); opacity: 1; filter: blur(10px); }
 }
 
-@keyframes orbit-cw {
+/* Físicas del Sistema Planetario */
+@keyframes orbit-planet {
   from { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+  to { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+
+@keyframes orbit-sub {
+  from { transform: rotate(var(--start-angle)) translateX(var(--sub-orbit-radius)) rotate(calc(-1 * var(--start-angle))); }
+  to   { transform: rotate(calc(var(--start-angle) + 360deg)) translateX(var(--sub-orbit-radius)) rotate(calc(-1 * (var(--start-angle) + 360deg))); }
 }
