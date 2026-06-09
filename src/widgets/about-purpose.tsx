@@ -21,9 +21,22 @@ export const AboutPurpose = () => {
             <p className="font-body text-[16px] text-on-surface-variant border-l-2 border-secondary-container/50 pl-6 italic">
               Brindamos respaldo tecnológico que se convierte en un recurso clave para alcanzar los objetivos de cualquier organización.
             </p>
-            <p className="font-body text-[16px] text-on-surface-variant">
+            <p className="font-body text-[16px] text-on-surface-variant mb-4">
               Somos una empresa joven con visión sólida y objetivos claros, enfocada en ayudarte a tomar decisiones tecnológicas que aumenten la productividad y competitividad de tu negocio.
             </p>
+
+            {/* Sello de confianza ULTRA SUTIL */}
+            <div className="pt-2 flex flex-wrap items-center gap-2 font-mono text-[10px] tracking-widest text-white/40 uppercase">
+              <span>Distribuidor Autorizado:</span>
+              <div className="flex gap-2 text-white/60 font-semibold">
+                <span>Fortinet</span>
+                <span>•</span>
+                <span>Sophos</span>
+                <span>•</span>
+                <span>Lenovo</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -32,10 +45,10 @@ export const AboutPurpose = () => {
           <div className="glass-card p-2 rounded-2xl overflow-hidden shadow-2xl rotate-3 transition-transform duration-500 hover:rotate-0">
             <img 
               alt="Transformación Digital y Soporte Estratégico" 
-              className="rounded-xl w-full h-[400px] object-cover opacity-80" 
+              className="rounded-xl w-full h-100 object-cover opacity-80" 
               src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary-container/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-tr from-primary-container/40 to-transparent"></div>
           </div>
           
           <div className="absolute -bottom-6 -right-6 glass-card p-6 rounded-xl border border-secondary-container/30 backdrop-blur-md">

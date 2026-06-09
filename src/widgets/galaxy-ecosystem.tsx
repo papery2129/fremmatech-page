@@ -68,7 +68,7 @@ export const GalaxyEcosystem = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-32 relative bg-[#020b1a] overflow-hidden" id="galaxy-section">
+    <section ref={sectionRef} className="py-32 relative bg-primary-container overflow-hidden" id="galaxy-section">
       
       {/* Background & Parallax Stars */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -107,20 +107,18 @@ export const GalaxyEcosystem = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 relative">
           
           {/* VISUALIZADOR 3D */}
-          <div className="relative w-full max-w-[650px] aspect-square shrink-0 mx-auto" style={{ perspective: '1200px' }}>
+          <div className="relative w-full max-w-162.5 aspect-square shrink-0 mx-auto" style={{ perspective: '1200px' }}>
             <div ref={wrapRef} className="relative w-full h-full flex items-center justify-center transition-transform duration-500 ease-out preserve-3d">
               
-              <div className="orbit-ring w-[240px] h-[240px]"></div>
-              <div className="orbit-ring w-[360px] h-[360px]"></div>
-              <div className="orbit-ring w-[480px] h-[480px]"></div>
-              <div className="orbit-ring w-[600px] h-[600px]"></div>
+              <div className="orbit-ring w-60 h-60"></div>
+              <div className="orbit-ring w-90 h-90"></div>
+              <div className="orbit-ring w-120 h-120"></div>
+              <div className="orbit-ring w-150 h-150"></div>
               
               {/* NÚCLEO (SOL) - REEMPLAZADO CON TU LOGO */}
               <div className="relative z-30 flex items-center justify-center pointer-events-none">
                 <div className="absolute inset-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl core-pulse"></div>
                 <div className="absolute inset-0 w-24 h-24 bg-cyan-400/40 rounded-full blur-xl animate-pulse"></div>
-                
-                {/* Aclaramos el azul usando bg-cyan-800/50 para que el logo negro contraste mejor */}
                 <div className="w-20 h-20 bg-cyan-800/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-cyan-400/80 shadow-[0_0_40px_rgba(0,227,253,0.6)] z-40 relative overflow-hidden">
                   <img 
                     src="/frematech-icon.png" 
@@ -175,7 +173,7 @@ export const GalaxyEcosystem = () => {
           </div>
 
           {/* PANEL DE INFORMACIÓN */}
-          <div className="w-full lg:w-[450px] relative min-h-[500px] lg:self-center">
+          <div className="w-full lg:w-112.5 relative min-h-125 lg:self-center">
             
             <div className={cn(
               "glass-card p-10 rounded-2xl absolute inset-0 flex flex-col justify-center border-white/5 transition-all duration-500",
@@ -209,7 +207,7 @@ export const GalaxyEcosystem = () => {
                     <h3 className="font-headline text-2xl font-bold text-on-surface leading-tight">{activeService.title}</h3>
                   </div>
                   
-                  <div className="overflow-y-auto max-h-[340px] pr-2 custom-scrollbar">
+                  <div className="overflow-y-auto max-h-85 pr-2 custom-scrollbar">
                     <p className="font-body text-[16px] text-on-surface-variant mb-4 leading-relaxed">{activeService.desc}</p>
                     
                     <div className="service-card-expandable">
