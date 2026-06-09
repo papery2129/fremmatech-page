@@ -4,10 +4,10 @@ export const Hero = () => {
   return (
     <section className="relative pt-40 pb-32 overflow-hidden">
       
-      {/* Background Effects (Actualizado sin imagen, puro CSS) */}
+      {/* Background Effects */}
       <div className="absolute inset-0 z-0">
-        {/* Resplandor superior cyan */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(0,227,253,0.15)_0%,_transparent_50%)]"></div>
+        {/* Resplandor superior cyan (corregido por linter) */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,227,253,0.15)_0%,transparent_50%)]"></div>
         {/* Gradiente de fondo con transición suave a surface */}
         <div className="absolute inset-0 bg-linear-to-b from-background via-surface to-secondary-container/10"></div>
       </div>

@@ -9,7 +9,9 @@ export const Partners = () => {
     "Palo Alto Networks", 
     "HP Enterprise", 
     "Microsoft", 
-    "Fortinet"
+    "Fortinet",
+    "Sophos",
+    "Lenovo"
   ];
 
   const infinitePartners = [...partnersList, ...partnersList];
