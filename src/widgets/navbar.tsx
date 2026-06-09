@@ -13,10 +13,21 @@ export const Navbar = () => {
     <header className="bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-[0_0_20px_rgba(0,227,253,0.1)] transition-transform">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
         
-        <div className="font-headline text-2xl font-bold text-on-surface">
+        <a 
+          href="#" 
+          aria-label="Ir al inicio"
+          className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-sm"
+        >
+          <img 
+            src="/frematech-icon.png" 
+            alt="Logo Fremmatech" 
+            className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="font-headline text-2xl font-bold text-on-surface">
             <span className="text-on-surface">Fremma</span>
             <span className="text-secondary-container">tech</span>
-        </div>
+          </div>
+        </a>
 
         <nav className="hidden md:flex gap-8">
           {navLinks.map((link) => (

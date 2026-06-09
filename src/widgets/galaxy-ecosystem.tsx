@@ -13,7 +13,7 @@ export const GalaxyEcosystem = () => {
   // Referencias y Hooks Personalizados
   const wrapRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const { stars, starsRef } = useParallaxStars(300); // <-- La magia sucia ocurre detrás de escenas
+  const { stars, starsRef } = useParallaxStars(300);
 
   // Computados
   const displayedNodeId = activeNode || hoveredNode;
@@ -37,7 +37,6 @@ export const GalaxyEcosystem = () => {
     if (activeNode) return;
     setHoveredNode(nodeId);
     
-    // Tilt 3D
     if (wrapRef.current) {
       const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
       const containerRect = wrapRef.current.getBoundingClientRect();
@@ -116,11 +115,18 @@ export const GalaxyEcosystem = () => {
               <div className="orbit-ring w-[480px] h-[480px]"></div>
               <div className="orbit-ring w-[600px] h-[600px]"></div>
               
+              {/* NÚCLEO (SOL) - REEMPLAZADO CON TU LOGO */}
               <div className="relative z-30 flex items-center justify-center pointer-events-none">
                 <div className="absolute inset-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl core-pulse"></div>
                 <div className="absolute inset-0 w-24 h-24 bg-cyan-400/40 rounded-full blur-xl animate-pulse"></div>
-                <div className="w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-cyan-400/50 shadow-[0_0_30px_rgba(0,227,253,0.4)] z-40 relative">
-                  <NetworkIcon />
+                
+                {/* Aclaramos el azul usando bg-cyan-800/50 para que el logo negro contraste mejor */}
+                <div className="w-20 h-20 bg-cyan-800/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-cyan-400/80 shadow-[0_0_40px_rgba(0,227,253,0.6)] z-40 relative overflow-hidden">
+                  <img 
+                    src="/frematech-icon.png" 
+                    alt="Núcleo Fremmatech" 
+                    className="w-12 h-12 object-contain"
+                  />
                 </div>
               </div>
 
@@ -230,9 +236,3 @@ export const GalaxyEcosystem = () => {
     </section>
   );
 };
-
-const NetworkIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-400">
-    <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect x="2" y="6" width="6" height="12" rx="1"/><rect x="16" y="6" width="6" height="12" rx="1"/><path d="M8 12h8"/>
-  </svg>
-);
