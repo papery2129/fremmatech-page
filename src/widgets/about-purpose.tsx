@@ -3,7 +3,7 @@ import imgAbout from "../assets/img-about.png";
 
 export const AboutPurpose = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-surface-container-low border-y border-white/5">
+    <section id="nosotros" className="py-24 relative overflow-hidden bg-surface-container-low border-y border-white/5">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
         {/* Columna de Texto */}

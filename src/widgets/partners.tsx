@@ -17,7 +17,7 @@ export const Partners = () => {
   const infinitePartners = [...partnersList, ...partnersList];
 
   return (
-    <section className="py-20 border-y overflow-hidden bg-surface border-white/5">
+    <section id="aliados" className="py-20 border-y overflow-hidden bg-surface border-white/5">
       <div className="max-w-container-max mx-auto text-center">
         
         {/* Nuevo bloque de encabezado (Semánticamente corregido) */}
