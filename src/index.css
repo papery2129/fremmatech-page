@@ -135,3 +135,21 @@
   from { transform: rotate(var(--start-angle)) translateX(var(--sub-orbit-radius)) rotate(calc(-1 * var(--start-angle))); }
   to   { transform: rotate(calc(var(--start-angle) + 360deg)) translateX(var(--sub-orbit-radius)) rotate(calc(-1 * (var(--start-angle) + 360deg))); }
 }
+
+@layer base {
+  /* 1. Comportamiento global de "Aplicación" */
+  body {
+    /* Mantiene la flecha normal y evita que los clics aleatorios busquen texto */
+    @apply cursor-default select-none; 
+  }
+
+  /* 2. Excepciones: Solo permitimos copiar el texto útil (arrastrando el mouse) */
+  p, h1, h2, h3, h4, h5, h6, span, li {
+    @apply select-text; 
+  }
+
+  /* 3. Mantenemos el comportamiento natural en formularios */
+  input, textarea {
+    @apply cursor-text select-auto;
+  }
+}
