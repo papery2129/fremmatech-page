@@ -74,8 +74,8 @@ export const Footer = () => {
           <h4 className="font-headline text-2xl font-bold text-on-surface mb-6">Contacto</h4>
           <address className="not-italic">
             <ul className="space-y-4 font-body text-base text-on-surface-variant">
-              <li><a href="mailto:info@fremmatech.com" className="hover:text-secondary-container transition-colors">info@fremmatech.com</a></li>
-              <li><a href="tel:+528112345678" className="hover:text-secondary-container transition-colors">+52 (81) 1234-5678</a></li>
+              <li><a href="mailto:info@fremmatech.com" className="hover:text-secondary-container transition-colors">edgar.pina@fremmatech.com</a></li>
+              <li><a href="tel:+528112345678" className="hover:text-secondary-container transition-colors">+52 (614) 136-26-22</a></li>
               <li>Chihuahua, Chih., México</li>
             </ul>
           </address>
