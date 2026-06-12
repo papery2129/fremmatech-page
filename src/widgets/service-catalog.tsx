@@ -15,19 +15,19 @@ export const ServiceCatalog = () => {
       title: "Venta de Equipos",
       description: "Opciones reales de equipamiento corporativo con entregas oportunas y soporte técnico post-venta garantizado.",
       icon: <MonitorSmartphone className="text-cyan-400" />,
-      tags: ["Lenovo Partner", "Garantía"], // <-- Tags de marca
+      tags: ["Hardware", "Garantía"],
     },
     {
       id: "networks",
-      title: "Redes y Seguridad",
+      title: "Redes y Seguridad", // Corregido aquí
       description: "Construcción de infraestructuras de red confiables y seguras para mantener la continuidad operativa.",
       icon: <Router className="text-cyan-400" />,
-      tags: ["Fortinet", "Sophos"], // <-- Tags de marca explícitos
+      tags: ["Networking", "Seguridad"],
     },
     {
       id: "support",
       title: "Soporte Técnico",
-      description: "Soporte Nivel 1, 2 y 3 en modalidad remota y en sitio con esquemas flexibles por bolsa de horas o evento.",
+      description: "Soporte Nivel 1, 2 y 3 in modalidad remota y en sitio con esquemas flexibles por bolsa de horas o evento.",
       icon: <Headset className="text-cyan-400" />,
       tags: ["24/7", "ITIL"],
     },
