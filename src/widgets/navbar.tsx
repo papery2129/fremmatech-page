@@ -1,5 +1,6 @@
 import { Globe } from "lucide-react";
 import { Button } from "../shared/ui/button";
+import logoIcon from "../assets/frematech-icon.png";
 
 export const Navbar = () => {
   const navLinks = [
@@ -18,8 +19,9 @@ export const Navbar = () => {
           aria-label="Ir al inicio"
           className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-sm"
         >
+          {/* Usamos la variable importada logoIcon */}
           <img 
-            src="/frematech-icon.png" 
+            src={logoIcon} 
             alt="Logo Fremmatech" 
             className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
           />

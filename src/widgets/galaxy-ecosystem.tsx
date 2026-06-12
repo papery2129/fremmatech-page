@@ -3,6 +3,7 @@ import { Sparkles, ChevronDown } from "lucide-react";
 import { cn } from "../shared/lib/utils";
 import { planetarySystem } from "../shared/config/galaxy-data";
 import { useParallaxStars } from "../shared/hooks/use-parallax";
+import logoIcon from "../assets/frematech-icon.png";
 
 export const GalaxyEcosystem = () => {
   // Estado de la UI
@@ -115,13 +116,13 @@ export const GalaxyEcosystem = () => {
               <div className="orbit-ring w-120 h-120"></div>
               <div className="orbit-ring w-150 h-150"></div>
               
-              {/* NÚCLEO (SOL) - REEMPLAZADO CON TU LOGO */}
+              {/* NÚCLEO (SOL) - LOGO DESDE ASSETS */}
               <div className="relative z-30 flex items-center justify-center pointer-events-none">
                 <div className="absolute inset-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl core-pulse"></div>
                 <div className="absolute inset-0 w-24 h-24 bg-cyan-400/40 rounded-full blur-xl animate-pulse"></div>
                 <div className="w-20 h-20 bg-cyan-800/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-cyan-400/80 shadow-[0_0_40px_rgba(0,227,253,0.6)] z-40 relative overflow-hidden">
                   <img 
-                    src="/frematech-icon.png" 
+                    src={logoIcon} 
                     alt="Núcleo Fremmatech" 
                     className="w-12 h-12 object-contain"
                   />
@@ -212,7 +213,7 @@ export const GalaxyEcosystem = () => {
                     
                     <div className="service-card-expandable">
                       <div className={cn("mb-6 pt-2 border-t", activeService.styles.border50)}>
-                        <p className={cn("font-mono text-[12px] font-bold tracking-widest uppercase mb-4 pt-2", activeService.styles.text)}>Detalle de Soluciones:</p>
+                        <p className="font-mono text-[12px] font-bold tracking-widest uppercase mb-4 pt-2 text-cyan-400">Detalle de Soluciones:</p>
                         <ul className="font-body text-[16px] text-on-surface-variant space-y-2 list-disc pl-5">
                           {activeService.features.map((feat, i) => <li key={i}>{feat}</li>)}
                         </ul>

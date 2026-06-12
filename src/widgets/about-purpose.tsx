@@ -1,4 +1,5 @@
 import { Brain } from "lucide-react";
+import imgAbout from "../assets/img-about.png";
 
 export const AboutPurpose = () => {
   return (
@@ -43,10 +44,11 @@ export const AboutPurpose = () => {
         {/* Columna Visual 3D */}
         <div className="relative hidden lg:block">
           <div className="glass-card p-2 rounded-2xl overflow-hidden shadow-2xl rotate-3 transition-transform duration-500 hover:rotate-0">
+            {/* Aquí usamos la variable imgAbout que importamos arriba */}
             <img 
               alt="Transformación Digital y Soporte Estratégico" 
               className="rounded-xl w-full h-100 object-cover opacity-80" 
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
+              src={imgAbout} 
             />
             <div className="absolute inset-0 bg-linear-to-tr from-primary-container/40 to-transparent"></div>
           </div>
