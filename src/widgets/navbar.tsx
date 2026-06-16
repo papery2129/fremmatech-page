@@ -33,7 +33,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-[0_0_20px_rgba(0,227,253,0.1)] transition-transform">
+    <header className="bg-[#050f1f]/95 backdrop-blur-2xl fixed top-0 w-full z-50 border-b border-cyan-500/20 shadow-[0_4px_30px_rgba(0,227,253,0.15)] transition-transform">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
         
         <a 
@@ -42,14 +42,18 @@ export const Navbar = () => {
           aria-label="Ir al inicio"
           className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-sm"
         >
+          {/* FILTROS DE CONTRASTE APLICADOS:
+            - drop-shadow-[0_0_8px_...]: Crea un aura/resplandor cyan que delinea el logo y evita que se pierda en el fondo oscuro.
+            - brightness-125: Eleva la iluminación nativa de los colores del logo un 25%.
+          */}
           <img 
             src={logoIcon} 
             alt="Logo Fremmatech" 
-            className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
+            className="w-8 h-8 transition-all duration-300 group-hover:scale-110 object-contain drop-shadow-[0_0_8px_rgba(0,227,253,0.6)] brightness-125"
           />
-          <div className="font-headline text-2xl font-bold text-on-surface">
-            <span className="text-on-surface">Fremma</span>
-            <span className="text-secondary-container">tech</span>
+          <div className="font-headline text-2xl font-bold tracking-wide">
+            <span className="text-white">Fremma</span>
+            <span className="text-cyan-400">tech</span>
           </div>
         </a>
 
@@ -59,10 +63,10 @@ export const Navbar = () => {
               key={link.label}
               href={link.href}
               onClick={(e) => handleScroll(e, link.label, link.href)}
-              className={`pb-1 transition-all duration-300 border-b-2 font-body text-base select-none ${
+              className={`pb-1 transition-all duration-300 border-b-2 font-body text-base font-medium select-none ${
                 activeLink === link.label
-                  ? "text-secondary border-secondary"
-                  : "text-on-surface-variant border-transparent hover:text-secondary"
+                  ? "text-cyan-400 border-cyan-400"
+                  : "text-gray-300 border-transparent hover:text-cyan-300"
               }`}
             >
               {link.label}
@@ -71,13 +75,6 @@ export const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <button 
-            aria-label="Cambiar idioma"
-            className="text-secondary cursor-pointer hover:bg-white/5 transition-all duration-300 p-2 rounded-full flex items-center justify-center"
-          >
-            
-          </button>
-          
           <Button 
             variant="primary"
             onClick={(e) => {

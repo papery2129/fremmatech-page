@@ -6,28 +6,28 @@ export const ServiceCatalog = () => {
     {
       id: "consulting",
       title: "Consultoría",
-      description: "Análisis de procesos internos para identificar oportunidades, puntos de dolor y mejoras estratégicas que impulsen el crecimiento.",
+      description: "Análisis de procesos internos para identificar oportunidades, puntos de dolor y mejoras estratégicas que impulsen el crecimiento continuo de tu empresa.",
       icon: <Brain className="text-cyan-400" />,
       tags: ["Estrategia", "Procesos"],
     },
     {
       id: "hardware",
       title: "Venta de Equipos",
-      description: "Opciones reales de equipamiento corporativo con entregas oportunas y soporte técnico post-venta garantizado.",
+      description: "Opciones reales de equipamiento corporativo de última generación, con entregas oportunas y un soporte técnico post-venta completamente garantizado.",
       icon: <MonitorSmartphone className="text-cyan-400" />,
       tags: ["Hardware", "Garantía"],
     },
     {
       id: "networks",
-      title: "Redes y Seguridad", // Corregido aquí
-      description: "Construcción de infraestructuras de red confiables y seguras para mantener la continuidad operativa.",
+      title: "Redes y Seguridad", 
+      description: "Construcción de infraestructuras de red seguras, respaldadas por un monitoreo continuo de SOC y NOC para garantizar la continuidad operativa empresarial.",
       icon: <Router className="text-cyan-400" />,
       tags: ["Networking", "Seguridad"],
     },
     {
       id: "support",
       title: "Soporte Técnico",
-      description: "Soporte Nivel 1, 2 y 3 in modalidad remota y en sitio con esquemas flexibles por bolsa de horas o evento.",
+      description: "Soporte técnico Nivel 1, 2 y 3 en modalidad remota y en sitio, con esquemas flexibles por bolsa de horas o evento.",
       icon: <Headset className="text-cyan-400" />,
       tags: ["24/7", "ITIL"],
     },
