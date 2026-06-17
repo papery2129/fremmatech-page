@@ -1,46 +1,37 @@
-import { type HTMLAttributes, forwardRef } from "react";
+import { type ReactNode } from "react";
 import { cn } from "../lib/utils";
 
-export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: "glass" | "light";
+interface CardProps {
+  children: ReactNode;
+  className?: string;
+  variant?: "light" | "dark";
 }
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = "glass", children, ...props }, ref) => {
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          "p-8 rounded-xl flex flex-col h-full transition-all duration-300 hover:shadow-xl relative group overflow-hidden",
-          variant === "glass" && "glass-card hover:-translate-y-1",
-          variant === "light" && "bg-white border border-gray-100 shadow-lg",
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </div>
-    );
-  }
-);
-Card.displayName = "Card";
+export const Card = ({ children, className, variant = "dark" }: CardProps) => {
+  return (
+    <div 
+      className={cn(
+        "rounded-2xl p-8 transition-all duration-300",
+        // ¡LA MAGIA OCURRE AQUÍ! Hacemos que la tarjeta sea un flexbox vertical de altura completa
+        "flex flex-col h-full", 
+        variant === "light" 
+          ? "bg-white border border-gray-100 shadow-sm hover:shadow-md" 
+          : "glass-card border border-white/10 hover:border-cyan-500/30",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+};
 
-export const CardChip = ({ 
-  children, 
-  className, 
-  isLight 
-}: { 
-  children: React.ReactNode; 
-  className?: string;
-  isLight?: boolean;
-}) => {
+export const CardChip = ({ children, isLight }: { children: ReactNode, isLight?: boolean }) => {
   return (
     <span className={cn(
-      "px-3 py-1 rounded-md font-body text-[13px] font-medium transition-colors",
+      "text-xs font-mono font-bold tracking-wider px-3 py-1 rounded-full",
       isLight 
-        ? "bg-gray-100 text-gray-700" 
-        : "bg-(--color-surface-container-high) text-on-surface-variant group-hover:bg-secondary-container/10 group-hover:text-secondary",
-      className
+        ? "bg-gray-100 text-gray-600" 
+        : "bg-white/5 text-cyan-400 border border-cyan-400/20"
     )}>
       {children}
     </span>
