@@ -1,13 +1,49 @@
+import { useState } from "react";
 import { Button } from "../shared/ui/button";
 import { Input } from "../shared/ui/input";
 
 export const ContactSection = () => {
-  
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    setIsSubmitting(true);
+    setStatusMessage(null);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-    console.log("Datos seguros listos para enviar:", data);
+
+    try {
+      const response = await fetch('https://fremmatech.com/enviar_correo.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nombre: `${data.fullname} - Empresa: ${data.company}`,
+          email: data.email,
+          servicio: data.service
+          // El campo mensaje ya no se envía
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Error en el servidor');
+      }
+
+      setStatusMessage({ type: 'success', text: result.success || '¡Mensaje enviado correctamente! Nos pondremos en contacto.' });
+      form.reset(); 
+
+    } catch (error: any) {
+      console.error("Error de conexión:", error);
+      setStatusMessage({ type: 'error', text: error.message || 'Error al enviar. Por favor intenta nuevamente.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -23,13 +59,9 @@ export const ContactSection = () => {
           </p>
         </div>
 
-        {/* Contenedor del efecto de elevación */}
         <div className="relative group">
-          
-          {/* 1. Ambient Glow: Capa difuminada que "empuja" el formulario hacia adelante */}
           <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-blue-500/10 to-purple-500/20 rounded-2rem blur-xl opacity-70 group-focus-within:opacity-100 transition-opacity duration-500"></div>
           
-          {/* 2. El Formulario: Ahora con bg-surface-container-high para separarlo del fondo negro */}
           <form 
             onSubmit={handleSubmit}
             className="
@@ -89,13 +121,20 @@ export const ContactSection = () => {
               </select>
             </div>
 
+            {statusMessage && (
+              <div className={`p-4 rounded-lg text-sm font-medium text-center ${statusMessage.type === 'error' ? 'bg-red-500/10 text-red-400 border border-red-500/20' : 'bg-green-500/10 text-green-400 border border-green-500/20'}`}>
+                {statusMessage.text}
+              </div>
+            )}
+
             <div className="pt-4 text-center">
               <Button 
                 type="submit" 
                 variant="primary" 
-                className="w-full md:w-auto px-10 py-4 text-[13px] shadow-[0_0_20px_rgba(0,227,253,0.3)]"
+                disabled={isSubmitting}
+                className={`w-full md:w-auto px-10 py-4 text-[13px] shadow-[0_0_20px_rgba(0,227,253,0.3)] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                ENVIAR SOLICITUD
+                {isSubmitting ? 'ENVIANDO...' : 'ENVIAR SOLICITUD'}
               </Button>
             </div>
           </form>
