@@ -112,11 +112,11 @@ export const ContactSection = () => {
                 className="w-full bg-[#131315] border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors appearance-none cursor-pointer shadow-inner"
               >
                 <option value="" disabled>Selecciona un servicio</option>
-                <option value="redes">Redes y Conectividad</option>
-                <option value="ciberseguridad">Ciberseguridad Avanzada</option>
-                <option value="cloud">Cloud & Data Centers</option>
-                <option value="soporte">Soporte Técnico Especializado</option>
-                <option value="consultoria">Consultoría IT Industrial</option>
+                <option value="Redes y Conectividad">Redes y Conectividad</option>
+                <option value="Ciberseguridad Avanzada">Ciberseguridad Avanzada</option>
+                <option value="Cloud & Data Centers">Cloud & Data Centers</option>
+                <option value="Soporte Técnico Especializado">Soporte Técnico Especializado</option>
+                <option value="Consultoría IT">Consultoría IT Industrial</option>
               </select>
             </div>
 
