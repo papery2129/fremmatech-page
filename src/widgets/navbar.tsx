@@ -33,25 +33,27 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="bg-[#050f1f]/95 backdrop-blur-2xl fixed top-0 w-full z-50 border-b border-cyan-500/20 shadow-[0_4px_30px_rgba(0,227,253,0.15)] transition-transform">
+    <header className="bg-[#102a43]/95 backdrop-blur-2xl fixed top-0 w-full z-50 border-b border-cyan-500/20 shadow-[0_4px_30px_rgba(0,227,253,0.15)] transition-transform">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
         
-        <a 
-          href="#" 
+        <a
+          href="#"
           onClick={(e) => handleScroll(e, "", "#")}
           aria-label="Ir al inicio"
           className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-sm"
         >
-          {/* FILTROS DE CONTRASTE APLICADOS:
-            - drop-shadow-[0_0_8px_...]: Crea un aura/resplandor cyan que delinea el logo y evita que se pierda en el fondo oscuro.
-            - brightness-125: Eleva la iluminación nativa de los colores del logo un 25%.
-          */}
-          <img 
-            src={logoIcon} 
-            alt="Logo Fremmatech" 
-            className="w-8 h-8 transition-all duration-300 group-hover:scale-110 object-contain drop-shadow-[0_0_8px_rgba(0,227,253,0.6)] brightness-125"
-          />
-          <div className="font-headline text-2xl font-bold tracking-wide">
+          {/* Resplandor Fantasma suavizado: Opacidad bajó a 40% y escala a 1.8 */}
+          <div className="relative flex items-center justify-center">
+            <div className="absolute inset-0 bg-cyan-500/40 blur-xl rounded-full scale-[1.8] group-hover:bg-cyan-400/60 transition-colors duration-500"></div>
+
+            <img
+              src={logoIcon}
+              alt="Logo Fremmatech"
+              className="relative w-8 h-8 transition-transform duration-300 group-hover:scale-110 object-contain z-10"
+            />
+          </div>
+
+          <div className="font-headline text-2xl font-bold tracking-wide z-10">
             <span className="text-white">Fremma</span>
             <span className="text-cyan-400">tech</span>
           </div>
@@ -77,6 +79,8 @@ export const Navbar = () => {
         <div className="flex items-center gap-4">
           <Button 
             variant="primary"
+            /* Agregamos className para oscurecer específicamente este botón en el Navbar */
+            className="bg-cyan-800/80 hover:bg-cyan-700 text-white border border-cyan-500/30 shadow-[0_0_10px_rgba(0,227,253,0.1)]"
             onClick={(e) => {
               e.preventDefault();
               const target = document.querySelector("#contacto");

@@ -13,30 +13,29 @@ export const ContactSection = () => {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+
+    // 1. Agregamos tu llave de Web3Forms
+    formData.append("access_key", "ccc51185-8d9f-46ca-a5f7-44e267250184");
+
+    // 2. Configuramos cómo quieres que se vea el correo
+    formData.append("subject", "Nueva Cotización desde Fremmatech Web");
+    formData.append("from_name", "Notificaciones Fremmatech");
 
     try {
-      const response = await fetch('https://fremmatech.com/enviar_correo.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nombre: `${data.fullname} - Empresa: ${data.company}`,
-          email: data.email,
-          servicio: data.service
-          // El campo mensaje ya no se envía
-        }),
+      // 3. Enviamos directo a la API, saltándonos GoDaddy
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
       });
 
-      const result = await response.json();
+      const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Error en el servidor');
+      if (data.success) {
+        setStatusMessage({ type: 'success', text: '¡Mensaje enviado correctamente! Nos pondremos en contacto.' });
+        form.reset(); 
+      } else {
+        throw new Error(data.message || 'Error en el servidor');
       }
-
-      setStatusMessage({ type: 'success', text: result.success || '¡Mensaje enviado correctamente! Nos pondremos en contacto.' });
-      form.reset(); 
 
     } catch (error: any) {
       console.error("Error de conexión:", error);
