@@ -15,14 +15,14 @@ export const ContactSection = () => {
     const formData = new FormData(form);
 
     // 1. Agregamos tu llave de Web3Forms
-    formData.append("access_key", "ccc51185-8d9f-46ca-a5f7-44e267250184");
+    formData.append("access_key", "Aqui tu acces o api key para el formulario de contacto");
 
     // 2. Configuramos cómo quieres que se vea el correo
     formData.append("subject", "Nueva Cotización desde Fremmatech Web");
     formData.append("from_name", "Notificaciones Fremmatech");
 
     try {
-      // 3. Enviamos directo a la API, saltándonos GoDaddy
+      // 3. Enviamos directo a la API
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData
